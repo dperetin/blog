@@ -1,6 +1,8 @@
 Raspberry Pi - prvi dojmovi
 ===========================
 
+:tags: RPi, Raspberry Pi
+
 Hardver
 -------
 
