@@ -13,7 +13,7 @@ RPi je stigao. Malo računalo u maloj kutiji.
 .. image:: slike/RPi_closeup.jpg
 
 Planirano je da RPi dolazi u dvije varijanete, Model A i Model B. Model A je jeftinija varijanta, zvanična cijena mu je 25 USD  no zasad se proizvodi samo model B i to po cijeni od 35 USD. Koliko stvarno košta da ga se dobije u lijepu našu, saznajte u nastavku. 
-Raspbery Pi model B pogoni Broadcom BCM2835 procesor koji kuca na 700 MHz. Model B također ima modul
+Raspberry Pi model B pogoni Broadcom BCM2835 procesor koji kuca na 700 MHz. Model B također ima modul
 od 256 Mb radne memorije koja se dijeli između centralnog procesora i grafičkog procesora. 
 Po defaultu centralnom procesoru ostaje 186 MB. Prisutna su dva USB 2.0 priključka, HDMI izlaz, 
 3.5mm audio i RCA kompozitni izlaz. 
@@ -23,7 +23,7 @@ RPi model B, spojen analogno na TV, spojeni miš, tipkovnica i eksteni disk:
 
 .. image:: slike/RPi.jpg
 
-Ono što nećete dobiti uz RPi, a nužno je za njegov rad je SD memorijska kartica.
+Ono što nećete dobiti uz RPi, a nužno je za njegov rad, je SD memorijska kartica.
 
 SD kartica s predinstaliranim operativnim sustavom se može naručiti prilikom kupnje no u trenutku naručivanja ovog uređaja bile su rasprodane. Dakle, za pokretanje RPi-a potrebno je imati pri ruci jednu SD karticu kapaciteta barem 2 GB te se na nju mora nasnimiti slika koja sadrži operativni sustav. Na službenim download stranicama RPi-a dostupne su tri takve slike, od
 kojih se za početak preporučuje Debian squeeze pa sam odlučio svoje druženje s RPi-om započeti upravo tom slikom.
@@ -70,8 +70,8 @@ Prije nastavka potrebno je unmountati sve particije koje se nalaze na kartici, u
 
 ::
 
-    umount /dev/sdd1
-    umount /dev/sdd3
+    $ umount /dev/sdd1
+    $ umount /dev/sdd3
 
 Slika se sada snimi na karticu s ::
 
@@ -82,18 +82,16 @@ pa onda ::
     # sync
 
 Ovako pripremljena kartica je dovoljna da se RPi boota.
-Nema on/off gumba. Stvar se ušteka i radi. 
-RPi sa ovom debian slikom se boota u terminal o prvi boot traje oko 4.5 minute, a svaki sljedeći oko jedne minute. 
+Nema on/off gumba, stvar se ušteka i radi. 
+RPi s ovom debian slikom se boota u terminal i prvi boot traje oko 4.5 minute, a svaki sljedeći oko jedne minute. 
 
 Defaultni username za ovu sliku je pi i pripadni password je raspberry.
 
 Prvo što upada u oči nakon boota je činjenica da ovakav način pripremanja kartice koristi samo
 onaj dio kartice koji je predviđen slikom, odnosno 2 GB.
-
 Iako je moja testna kartica kapaciteta 8 GB, RPi vidi i koristi samo 2 GB,
 što korisniku ostavlja na koristenje cijelih 298 MB. Neke druge slike kao
 primjerice raspbmc pobrinu se da je cijela kartica raspoliživa.
-
 Nakon prvog boota diskovna situacija izgleda ovako: ::
 
     pi@raspberrypi:~$ df -h
@@ -204,7 +202,7 @@ u ovo: ::
     /var/swapfile   none            swap    sw                                      0       0
 
 Debian radi uredno. Repozitoriji su dostupni i bez nekih problema sam uspio instalirati nekoliko
-paketa. Debian dolazi s LXDE-om, ali X server ne diže pri bootu. Dizanje X-a traje oko 20 sekundi, što i nije pretjerano dugo. Prvo dizanje midorija nakon boota traje oko dvije i pol minute, ali svako sljedeće je puno brže, oko 8 sekundi. Ono što ne radi, odnosno ne radi dobro out of the box, je mutimedija. Umjesto da pokušavam natjerati multimediju da se pristojno ponaša na debianu, posegnu sam za popularnom alternativom, Raspbmcom.
+paketa. Debian dolazi s LXDE-om, ali X server ne diže pri bootu. Dizanje X-a traje oko 20 sekundi, što i nije pretjerano dugo. Prvo dizanje midorija nakon boota traje oko dvije i pol minute, ali svako sljedeće je puno brže, oko 8 sekundi. Ono što ne radi, odnosno ne radi dobro out of the box, je mutimedija. Umjesto da pokušavam natjerati multimediju da se pristojno ponaša na debianu, posegnuo sam za popularnom alternativom, Raspbmc-om.
 
 Raspbmc
 -------
@@ -214,43 +212,43 @@ xbmc za upravljanje sadržajem.
 
 Slika Raspbmc se može skinuti s http://download.raspbmc.com/downloads/bin/ramdistribution/installer-testing.img.gz
 
-Smjestanje slike na karticu se odvija isto kao kod debiana. 
+Smještanje slike na karticu se odvija isto kao kod debiana. 
 Za razliku od debiana, tim postupkom se na karticu postavi instaler. Za dovršetak instalacije dovoljno je upaliti RPi i spojiti ga na mrežu. Instaler će sam odraditi ostatak posla.
 
 Za razliku od debiana, raspbmc će iskoristiti cijeli kapacitet SD kartice.
 
 Multimedija radi iznenađujuće dobro. RPi je dovoljno snažan da glatko vrti filmove HD kvalitete.
-Mali bug primjećen je kod reprodukcije glazbe, naime, ako se pjesme ne odsluša do kraja, nego
+Mali bug primjećen je kod reprodukcije glazbe, naime, ako se pjesma ne odsluša do kraja, nego
 se prije kraja pokrene neka druga pjesma, ta druga neće svirati.
 
 XBMC povremeno u terminal zapiše neku poruku (najčešće opis neke greške zapiše na stderr).
 Ako se u tom trenutku reproducira neki film, koji je takvog formata da slika nije prikazana 
-preko cijelog ekrana, onda se te poruke vide u crnom predjelu ispod i iznad slike.
+preko cijelog ekrana, onda se ta poruka vidi u crnom predjelu ispod i iznad slike.
 
 .. image :: slike/RPi_stderr.jpg
 
 Korisna napomena; ako se RPi ne spaja na TV (ili monitor) preko HDMI-a, nego analogno,
-onda se bavezno u postavkama XBMC-a, audio output mora staviti na analog, u suprotnom se dobije ovo: 
+onda se obavezno u postavkama XBMC-a audio output mora staviti na analog, u suprotnom se pri pokretanju filma dobije ovo: 
 
 .. image :: slike/RPi_audio_analog.jpg
 
-Zgodna je činjenica da raspbmc po defalutu pokreće SSh server, pa ako se nekako može dokučiti IP
+Zgodna je činjenica da raspbmc po defalutu pokreće SSH server pa, ako se nekako može dokučiti IP
 adresa stroja, jedino što je potreno da bi se na RPi-u nešto radilo je RJ45 kabel, dok su kod debiana potrebni ekran i tipkovnica barem kod prvog boota.
 
 Dojmovi
 -------
 
-Rpi se uredno spojio na mrezu (DHCP), tipkovnica i miš su također uredno prepoznati.
+RPi se uredno spojio na mrežu (DHCP), tipkovnica i miš su također uredno prepoznati.
 RPi je bio spojen na stari TV i slika i zvuk su uredno preneseni. USB konektori su smješteni jako blizu jedan drugom, pa ako planirate imati spojen uređaj koji
 je malo deblji, kao npr. USB stick ili wifi adapter, potrebno je imati nekak produžni ili hub.
 
-Debian radi poprilično dobro, rad u terminalu je malčice spor, ali definitivno upotrebljiv.
+Debian radi poprilično dobro, rad u terminalu je malčice spor, ali je RPi za tu svrhu definitivno upotrebljiv.
 Rad u grafičkom sučelju je osjetno sporiji. Kao glavna uloga RPi-a ističe se ona edukacijska i to u svrhu učenja programiranja. Ako se sjetimo da se uz učenje puno puta treba posjetiti
-Duck Duck Go i imati otvoreno nekliko (desetaka) tabova, učenje programiranja uz RPi bi
+Duck Duck Go i imati otvoreno nekoliko (desetaka) tabova, učenje programiranja uz RPi bi
 predložio samo ljudima koji imaju puno strpljenja i kvalitetnu literaturu u tiskanom obliku.
 
 Kao jedna od najpopularnih primjena RPi-a se spominje ona gdje RPi glumi media centar. 
-Softver koji ga nekako najbliže dovodi tom cilju, raspbmc, još ipak nije spreman. Iako se filmovi vrte glatke, samo sučelje XBMC-a malo zapinje. Nedostatak podrške za neke kodeke i sitni iritanti bugovi su dovoljni razlozi da zaključavanje svog HTPC-a na tavan odgodite na još barem neko vrijeme. 
+Softver koji ga nekako najbliže dovodi tom cilju, raspbmc, još ipak nije spreman. Iako se filmovi vrte glatko, samo sučelje XBMC-a malo zapinje. Nedostatak podrške za neke kodeke i sitni iritanti bugovi su dovoljni razlozi da zaključavanje svog HTPC-a na tavan odgodite na još barem neko vrijeme. 
 
 I koliko košta Pi od 35 dolara?
 -------------------------------
