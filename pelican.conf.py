@@ -4,7 +4,7 @@ SITENAME = u"_dp"
 
 TIMEZONE = "Europe/Paris"
 
-GITHUB_URL = 'http://github.com/dperetin/'
+#GITHUB_URL = 'http://github.com/dperetin/'
 DISQUS_SITENAME = "dperetin"
 PDF_GENERATOR = False
 REVERSE_CATEGORY_ORDER = True

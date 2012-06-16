@@ -44,7 +44,7 @@ Time se dobije debian6-19-04-2012.img datoteka koja sadrži sliku.
 Da bi na SD karticu stavili sliku, potrebno je imati neki čitač kartica i spojiti karticu na računalo.
 Zatim moramo utvrditi pod kojim imenom je kartica prepoznata:
 Naredbom df -h možemo vidjeti novo mountane diskove te prepoznati našu SD karticu.
-Ako izvršimo tu narednu prije i poslije umetanja kartice možemo uočiti nove zapise i prepoznati karticu
+Ako izvršimo tu naredbu prije i poslije umetanja kartice možemo uočiti nove zapise i prepoznati karticu
 
 ::
 
@@ -91,7 +91,7 @@ Prvo što upada u oči nakon boota je činjenica da ovakav način pripremanja ka
 onaj dio kartice koji je predviđen slikom, odnosno 2 GB.
 Iako je moja testna kartica kapaciteta 8 GB, RPi vidi i koristi samo 2 GB,
 što korisniku ostavlja na koristenje cijelih 298 MB. Neke druge slike kao
-primjerice raspbmc pobrinu se da je cijela kartica raspoliživa.
+primjerice raspbmc pobrinu se da je cijela kartica raspoloživa.
 Nakon prvog boota diskovna situacija izgleda ovako: ::
 
     pi@raspberrypi:~$ df -h
@@ -129,7 +129,7 @@ naredbom p izlistamo informacije o particijama.
     /dev/mmcblk0p2          157696     3414015     1628160   83  Linux
     /dev/mmcblk0p3         3416064     3807231      195584   82  Linux swap / Solaris
 
-Mijenjamu veličinu particiji /dev/mmcblk0p2. 
+Mijenjamo veličinu particiji /dev/mmcblk0p2. 
 Prvo izbrišemo particiju komandom d i damo mu broj particije (2 i 3 u ovom slučaju) ::
 
     Command (m for help): d
@@ -139,7 +139,7 @@ Prvo izbrišemo particiju komandom d i damo mu broj particije (2 i 3 u ovom slu�
     Partition number (1-4): 3
 
 Sada napravimo particiju
-(n p 2) i za početak sektora stavimo početak stare particije te za veličinu izaveremo defaultnu ponuđenu vrijednost, kako bi se particija proširila na ostatak diska: ::
+(n p 2) i za početak sektora stavimo početak stare particije te za veličinu izaberemo defaultnu ponuđenu vrijednost, kako bi se particija proširila na ostatak diska: ::
 
             Device Boot      Start         End      Blocks   Id  System
     /dev/mmcblk0p1            2048      155647       76800    c  W95 FAT32 (LBA)
@@ -179,7 +179,7 @@ Root particija je sada rastegnuta preko cijele kartice: ::
     rootfs                7.3G  1.2G  5.8G  17% /
     /dev/mmcblk0p1         75M   28M   47M  37% /boot
 
-U jednom od prethodnih koraka odabrali smo opciju da se root particija prosiri na cijeli disk
+U jednom od prethodnih koraka odabrali smo opciju da se root particija proširi na cijeli disk
 pa sada nema mjesta za swap particiju (budući da RPi ima svega 256 MB radne memorije, malo swapa neće škoditi). To ćemo riješiti ovako ::
 
     # dd if=/dev/zero of=/var/swapfile bs=1M count=128
@@ -202,12 +202,12 @@ u ovo: ::
     /var/swapfile   none            swap    sw                                      0       0
 
 Debian radi uredno. Repozitoriji su dostupni i bez nekih problema sam uspio instalirati nekoliko
-paketa. Debian dolazi s LXDE-om, ali X server ne diže pri bootu. Dizanje X-a traje oko 20 sekundi, što i nije pretjerano dugo. Prvo dizanje midorija nakon boota traje oko dvije i pol minute, ali svako sljedeće je puno brže, oko 8 sekundi. Ono što ne radi, odnosno ne radi dobro out of the box, je mutimedija. Umjesto da pokušavam natjerati multimediju da se pristojno ponaša na debianu, posegnuo sam za popularnom alternativom, Raspbmc-om.
+paketa. Debian dolazi s LXDE-om, ali X server ne diže pri bootu. Dizanje X-a traje oko 20 sekundi, što i nije pretjerano dugo. Prvo dizanje midorija nakon boota traje oko dvije i pol minute, ali svako sljedeće je puno brže, oko 8 sekundi. Ono što ne radi, odnosno ne radi dobro out of the box, je multimedija. Umjesto da pokušavam natjerati multimediju da se pristojno ponaša na debianu, posegnuo sam za popularnom alternativom, Raspbmc-om.
 
 Raspbmc
 -------
 
-Raspbmc je napravljen s jednom svrhom, a to je mutimedija. Napravljen je povrh debiana te koristi
+Raspbmc je napravljen s jednom svrhom, a to je multimedija. Napravljen je povrh debiana te koristi
 xbmc za upravljanje sadržajem.
 
 Slika Raspbmc se može skinuti s http://download.raspbmc.com/downloads/bin/ramdistribution/installer-testing.img.gz
@@ -233,21 +233,21 @@ onda se obavezno u postavkama XBMC-a audio output mora staviti na analog, u supr
 .. image :: slike/RPi_audio_analog.jpg
 
 Zgodna je činjenica da raspbmc po defalutu pokreće SSH server pa, ako se nekako može dokučiti IP
-adresa stroja, jedino što je potreno da bi se na RPi-u nešto radilo je RJ45 kabel, dok su kod debiana potrebni ekran i tipkovnica barem kod prvog boota.
+adresa stroja, jedino što je potrebno da bi se na RPi-u nešto radilo je RJ45 kabel, dok su kod debiana potrebni ekran i tipkovnica barem kod prvog boota.
 
 Dojmovi
 -------
 
 RPi se uredno spojio na mrežu (DHCP), tipkovnica i miš su također uredno prepoznati.
 RPi je bio spojen na stari TV i slika i zvuk su uredno preneseni. USB konektori su smješteni jako blizu jedan drugom, pa ako planirate imati spojen uređaj koji
-je malo deblji, kao npr. USB stick ili wifi adapter, potrebno je imati nekak produžni ili hub.
+je malo deblji, kao npr. USB stick ili wifi adapter, potrebno je imati nekakav produžni ili hub.
 
 Debian radi poprilično dobro, rad u terminalu je malčice spor, ali je RPi za tu svrhu definitivno upotrebljiv.
 Rad u grafičkom sučelju je osjetno sporiji. Kao glavna uloga RPi-a ističe se ona edukacijska i to u svrhu učenja programiranja. Ako se sjetimo da se uz učenje puno puta treba posjetiti
 Duck Duck Go i imati otvoreno nekoliko (desetaka) tabova, učenje programiranja uz RPi bi
 predložio samo ljudima koji imaju puno strpljenja i kvalitetnu literaturu u tiskanom obliku.
 
-Kao jedna od najpopularnih primjena RPi-a se spominje ona gdje RPi glumi media centar. 
+Kao jedna od najpopularnijih primjena RPi-a se spominje ona gdje RPi glumi media centar. 
 Softver koji ga nekako najbliže dovodi tom cilju, raspbmc, još ipak nije spreman. Iako se filmovi vrte glatko, samo sučelje XBMC-a malo zapinje. Nedostatak podrške za neke kodeke i sitni iritanti bugovi su dovoljni razlozi da zaključavanje svog HTPC-a na tavan odgodite na još barem neko vrijeme. 
 
 I koliko košta Pi od 35 dolara?
