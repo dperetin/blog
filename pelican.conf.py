@@ -33,3 +33,8 @@ THEME = "tuxlite_tbs"
 
 DISPLAY_PAGES_ON_MENU = True
 
+DEFAULT_CATEGORY = 'Ostalo'
+
+DEFAULT_LANG = 'en'
+
+LOCALE = 'hr_HR'
