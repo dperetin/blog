@@ -35,6 +35,8 @@ DISPLAY_PAGES_ON_MENU = True
 
 DEFAULT_CATEGORY = 'Ostalo'
 
-DEFAULT_LANG = 'en'
+DEFAULT_LANG = 'hr'
 
-LOCALE = 'hr_HR'
+LOCALE = {'hr_HR'}
+
+DEFAULT_DATE_FORMAT = '%Y-%m-%d'
