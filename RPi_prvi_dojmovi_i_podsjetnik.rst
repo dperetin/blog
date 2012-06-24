@@ -4,6 +4,7 @@ Raspberry Pi - prvi dojmovi
 :tags: RPi, Raspberry Pi
 :lang: hr
 :slug: rpi-prvi-dojmovi
+:date: 2012-06-16
 
 
 RPi je stigao. Malo računalo u maloj kutiji.
