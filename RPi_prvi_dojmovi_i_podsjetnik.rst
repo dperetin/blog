@@ -2,7 +2,7 @@ Raspberry Pi - prvi dojmovi
 ###########################
 
 :tags: RPi, Raspberry Pi
-:lang: en
+:lang: hr
 :slug: rpi-prvi-dojmovi
 
 

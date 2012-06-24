@@ -32,3 +32,4 @@ STATIC_PATHS = ["slike", ]
 THEME = "tuxlite_tbs"
 
 DISPLAY_PAGES_ON_MENU = True
+
