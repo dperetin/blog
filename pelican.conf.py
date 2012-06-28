@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 AUTHOR = u'Dejan Peretin'
-SITENAME = u"_dp"
+SITENAME = u"dejanperetin.com"
 SITEURL = 'http://www.dejanperetin.com'
 TIMEZONE = "Europe/Paris"
 
 #GITHUB_URL = 'http://github.com/dperetin/'
-DISQUS_SITENAME = "dperetin"
+#DISQUS_SITENAME = "dperetin"
 GOOGLE_ANALYTICS = "UA-32705935-1"
 
 PDF_GENERATOR = False
@@ -35,7 +35,7 @@ DISPLAY_PAGES_ON_MENU = True
 
 DEFAULT_CATEGORY = 'Ostalo'
 
-DEFAULT_LANG = 'hr'
+DEFAULT_LANG = 'en'
 
 LOCALE = {'hr_HR'}
 
