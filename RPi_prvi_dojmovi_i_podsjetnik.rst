@@ -7,34 +7,35 @@ Raspberry Pi - prvi dojmovi
 :date: 2012-06-16
 
 
-RPi je stigao. Malo računalo u maloj kutiji.
+Raspberry Pi (*u daljnjem tekstu RPi*) je stigao. Malo računalo u maloj kutiji.
+
+Planirano je da RPi dolazi u dvije varijanete, Model A i Model B. Model A je jeftinija varijanta, zvanična cijena mu je 25 USD  no zasad se proizvodi samo model B i to po cijeni od 35 USD. Koliki su stvarni troškovi dok dođe na kućna vrata, saznajte u nastavku.
 
 .. image:: slike/RPi_box.jpg
 
 .. image:: slike/RPi_closeup.jpg
 
-Planirano je da RPi dolazi u dvije varijanete, Model A i Model B. Model A je jeftinija varijanta, zvanična cijena mu je 25 USD  no zasad se proizvodi samo model B i to po cijeni od 35 USD. Koliko stvarno košta da ga se dobije u lijepu našu, saznajte u nastavku. 
-Raspberry Pi model B pogoni Broadcom BCM2835 procesor koji kuca na 700 MHz. Model B također ima modul
+`Raspberry Pi <http://www.raspberrypi.org/>`_ model B pogoni Broadcom BCM2835 procesor koji kuca na 700 MHz. Model B također ima modul
 od 256 Mb radne memorije koja se dijeli između centralnog procesora i grafičkog procesora. 
 Po defaultu centralnom procesoru ostaje 186 MB. Prisutna su dva USB 2.0 priključka, HDMI izlaz, 
 3.5mm audio i RCA kompozitni izlaz. 
 Raspberry Pi se na mrežu može spojiti putem RJ45 ethernet porta koji dolazi isključivo u modelu B.
 
-RPi model B, spojen analogno na TV, spojeni miš, tipkovnica i eksteni disk:
+Na slici dolje vidimo RPi model B, spojen analogno na TV, spojeni miš, tipkovnica i eksterni disk:
 
 .. image:: slike/RPi.jpg
 
 Ono što nećete dobiti uz RPi, a nužno je za njegov rad, je SD memorijska kartica.
 
-SD kartica s predinstaliranim operativnim sustavom se može naručiti prilikom kupnje no u trenutku naručivanja ovog uređaja bile su rasprodane. Dakle, za pokretanje RPi-a potrebno je imati pri ruci jednu SD karticu kapaciteta barem 2 GB te se na nju mora nasnimiti slika koja sadrži operativni sustav. Na službenim download stranicama RPi-a dostupne su tri takve slike, od
-kojih se za početak preporučuje Debian squeeze pa sam odlučio svoje druženje s RPi-om započeti upravo tom slikom.
+SD kartica s predinstaliranim operativnim sustavom se može naručiti prilikom kupnje no u trenutku naručivanja ovog uređaja bile su rasprodane. Dakle, za pokretanje RPi-a potrebno je imati pri ruci jednu SD karticu kapaciteta barem 2 GB te se na nju mora nasnimiti ISO slika koja sadrži operacijski sustav. Na `službenim download stranicama <http://www.raspberrypi.org/downloads>`_ RPi-a dostupne su tri takve slike, od
+kojih se za početak preporučuje Debian Squeeze, pa sam odlučio svoje druženje s RPi-om započeti upravo s Debianom.
 
 
 Instalacija slike
 -----------------
 
-Prvo je potrebno skinuti sliku koju planiramo staviti na SD karticu. U ovom slučaju to je 
-debian6-19-04-2012.zip koja se nalazi na službenoj download stranici.
+Prvo je potrebno skinuti ISO sliku koju planiramo staviti na SD karticu. U ovom slučaju to je 
+*debian6-19-04-2012.zip* koja se nalazi na `službenoj download stranici <http://www.raspberrypi.org/downloads>`_.
 
 Zatim sliku treba otpakirati ::
 
@@ -74,7 +75,7 @@ Prije nastavka potrebno je unmountati sve particije koje se nalaze na kartici, u
     $ umount /dev/sdd1
     $ umount /dev/sdd3
 
-Slika se sada snimi na karticu s ::
+Slika se sada snimi na karticu s naredbom ::
 
     # dd bs=1M if=debian6-19-04-2012.img of=/dev/sdd
 
@@ -84,9 +85,9 @@ pa onda ::
 
 Ovako pripremljena kartica je dovoljna da se RPi boota.
 Nema on/off gumba, stvar se ušteka i radi. 
-RPi s ovom debian slikom se boota u terminal i prvi boot traje oko 4.5 minute, a svaki sljedeći oko jedne minute. 
+RPi s ovom Debian slikom se boota u terminal i prvi boot traje oko 4.5 minute, a svaki sljedeći oko jedne minute. 
 
-Defaultni username za ovu sliku je pi i pripadni password je raspberry.
+Defaultni username za ovu sliku je *pi* i pripadni password je *raspberry*.
 
 Prvo što upada u oči nakon boota je činjenica da ovakav način pripremanja kartice koristi samo
 onaj dio kartice koji je predviđen slikom, odnosno 2 GB.
@@ -112,7 +113,7 @@ Sve ovo radimo direktno na RPi-u: ::
 
     # fdisk -uc /dev/mmcblk0
 
-naredbom p izlistamo informacije o particijama.
+naredbom *p* izlistamo informacije o particijama.
 
 ::
 
@@ -131,7 +132,7 @@ naredbom p izlistamo informacije o particijama.
     /dev/mmcblk0p3         3416064     3807231      195584   82  Linux swap / Solaris
 
 Mijenjamo veličinu particiji /dev/mmcblk0p2. 
-Prvo izbrišemo particiju komandom d i damo mu broj particije (2 i 3 u ovom slučaju) ::
+Prvo izbrišemo particiju komandom *d* i damo mu broj particije (2 i 3 u ovom slučaju) ::
 
     Command (m for help): d
     Partition number (1-4): 2
@@ -140,7 +141,7 @@ Prvo izbrišemo particiju komandom d i damo mu broj particije (2 i 3 u ovom slu�
     Partition number (1-4): 3
 
 Sada napravimo particiju
-(n p 2) i za početak sektora stavimo početak stare particije te za veličinu izaberemo defaultnu ponuđenu vrijednost, kako bi se particija proširila na ostatak diska: ::
+(*n p 2*) i za početak sektora stavimo početak stare particije te za veličinu izaberemo defaultnu ponuđenu vrijednost, kako bi se particija proširila na ostatak diska: ::
 
             Device Boot      Start         End      Blocks   Id  System
     /dev/mmcblk0p1            2048      155647       76800    c  W95 FAT32 (LBA)
@@ -162,11 +163,11 @@ Sada napravimo particiju
     Partition number (1-4): 2
     First sector (155648-15564799, default 155648): 157696
 
-Naredbom w snimimo promjene. Također je potrebno ponovno pokrenutu RPi. ::
+Naredbom *w* snimimo promjene. Također je potrebno ponovno pokrenutu RPi. ::
 
 # reboot
 
-Nakon ponovnog ulogiravanja napravimo resize ::
+Nakon ponovnog ulogiravanja napravimo *resize* ::
 
     # resize2fs /dev/mmcblk0p2
 
@@ -203,24 +204,23 @@ u ovo: ::
     /var/swapfile   none            swap    sw                                      0       0
 
 Debian radi uredno. Repozitoriji su dostupni i bez nekih problema sam uspio instalirati nekoliko
-paketa. Debian dolazi s LXDE-om, ali X server ne diže pri bootu. Dizanje X-a traje oko 20 sekundi, što i nije pretjerano dugo. Prvo dizanje midorija nakon boota traje oko dvije i pol minute, ali svako sljedeće je puno brže, oko 8 sekundi. Ono što ne radi, odnosno ne radi dobro out of the box, je multimedija. Umjesto da pokušavam natjerati multimediju da se pristojno ponaša na debianu, posegnuo sam za popularnom alternativom, Raspbmc-om.
+paketa. Debian dolazi s LXDE-om, ali X server ne diže pri bootu. Dizanje X-a traje oko 20 sekundi, što i nije pretjerano dugo. Prvo dizanje Midorija nakon boota traje oko dvije i pol minute, ali svako sljedeće je puno brže, oko 8 sekundi. Ono što ne radi, odnosno ne radi dobro *out of the box*, je multimedija. Umjesto da pokušavam natjerati multimediju da se pristojno ponaša na Debianu, posegnuo sam za popularnom alternativom, Raspbmc-om.
 
 Raspbmc
 -------
 
-Raspbmc je napravljen s jednom svrhom, a to je multimedija. Napravljen je povrh debiana te koristi
-xbmc za upravljanje sadržajem.
+`Raspbmc <http://www.raspbmc.com/>`_ je napravljen s jednom svrhom, a to je multimedija. Napravljen je povrh Debiana te koristi
+XBMC za upravljanje sadržajem.
 
-Slika Raspbmc se može skinuti s http://download.raspbmc.com/downloads/bin/ramdistribution/installer-testing.img.gz
+Slika Raspbmc se može skinuti s `ove poveznice <http://download.raspbmc.com/downloads/bin/ramdistribution/installer-testing.img.gz>`_.
 
-Smještanje slike na karticu se odvija isto kao kod debiana. 
-Za razliku od debiana, tim postupkom se na karticu postavi instaler. Za dovršetak instalacije dovoljno je upaliti RPi i spojiti ga na mrežu. Instaler će sam odraditi ostatak posla.
+Smještanje slike na karticu se odvija isto kao kod Debiana. 
+Za razliku od Debiana, tim postupkom se na karticu postavi instalacijski alat. Za dovršetak instalacije dovoljno je upaliti RPi i spojiti ga na mrežu. Instaler će sam odraditi ostatak posla.
 
-Za razliku od debiana, raspbmc će iskoristiti cijeli kapacitet SD kartice.
+Za razliku od Debiana, raspbmc će iskoristiti cijeli kapacitet SD kartice.
 
 Multimedija radi iznenađujuće dobro. RPi je dovoljno snažan da glatko vrti filmove HD kvalitete.
-Mali bug primjećen je kod reprodukcije glazbe, naime, ako se pjesma ne odsluša do kraja, nego
-se prije kraja pokrene neka druga pjesma, ta druga neće svirati.
+Mali bug primjećen je kod reprodukcije glazbe. Naime, ako pjesma ne odsvira do kraja već prebacimo na drugu, ona neće svirati.
 
 XBMC povremeno u terminal zapiše neku poruku (najčešće opis neke greške zapiše na stderr).
 Ako se u tom trenutku reproducira neki film, koji je takvog formata da slika nije prikazana 
@@ -234,19 +234,17 @@ onda se obavezno u postavkama XBMC-a audio output mora staviti na analog, u supr
 .. image :: slike/RPi_audio_analog.jpg
 
 Zgodna je činjenica da raspbmc po defalutu pokreće SSH server pa, ako se nekako može dokučiti IP
-adresa stroja, jedino što je potrebno da bi se na RPi-u nešto radilo je RJ45 kabel, dok su kod debiana potrebni ekran i tipkovnica barem kod prvog boota.
+adresa stroja, jedino što je potrebno da bi se na RPi-u nešto radilo je RJ45 kabel, dok su kod Debiana potrebni ekran i tipkovnica barem kod prvog boota.
 
 Dojmovi
 -------
 
 RPi se uredno spojio na mrežu (DHCP), tipkovnica i miš su također uredno prepoznati.
 RPi je bio spojen na stari TV i slika i zvuk su uredno preneseni. USB konektori su smješteni jako blizu jedan drugom, pa ako planirate imati spojen uređaj koji
-je malo deblji, kao npr. USB stick ili wifi adapter, potrebno je imati nekakav produžni ili hub.
+je malo deblji, kao npr. USB stick ili WiFi adapter, potrebno je imati nekakav produžni ili hub.
 
 Debian radi poprilično dobro, rad u terminalu je malčice spor, ali je RPi za tu svrhu definitivno upotrebljiv.
-Rad u grafičkom sučelju je osjetno sporiji. Kao glavna uloga RPi-a ističe se ona edukacijska i to u svrhu učenja programiranja. Ako se sjetimo da se uz učenje puno puta treba posjetiti
-Duck Duck Go i imati otvoreno nekoliko (desetaka) tabova, učenje programiranja uz RPi bi
-predložio samo ljudima koji imaju puno strpljenja i kvalitetnu literaturu u tiskanom obliku.
+Rad u grafičkom sučelju je osjetno sporiji. Kao glavna uloga RPi-a ističe se ona edukacijska i to u svrhu učenja programiranja. Ovo zahtjeva mnogo posjeta tražilicama i najčešće otvoreno nekoliko (desetaka) tabova, pa bih učenje programiranja uz RPi predložio samo ljudima koji imaju puno strpljenja i kvalitetnu literaturu u tiskanom obliku.
 
 Kao jedna od najpopularnijih primjena RPi-a se spominje ona gdje RPi glumi media centar. 
 Softver koji ga nekako najbliže dovodi tom cilju, raspbmc, još ipak nije spreman. Iako se filmovi vrte glatko, samo sučelje XBMC-a malo zapinje. Nedostatak podrške za neke kodeke i sitni iritanti bugovi su dovoljni razlozi da zaključavanje svog HTPC-a na tavan odgodite na još barem neko vrijeme. 
