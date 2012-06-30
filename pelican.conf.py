@@ -5,7 +5,7 @@ SITEURL = 'http://www.dejanperetin.com'
 TIMEZONE = "Europe/Paris"
 
 #GITHUB_URL = 'http://github.com/dperetin/'
-#DISQUS_SITENAME = "dperetin"
+DISQUS_SITENAME = "dperetin"
 GOOGLE_ANALYTICS = "UA-32705935-1"
 
 PDF_GENERATOR = False
