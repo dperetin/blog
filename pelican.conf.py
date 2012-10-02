@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 AUTHOR = u'Dejan Peretin'
-SITENAME = u"dejanperetin.com"
-SITEURL = 'http://www.dejanperetin.com'
+SITENAME = u"dperetin.github.com"
+SITEURL = 'http://dperetin.github.com'
 TIMEZONE = "Europe/Paris"
 
 #GITHUB_URL = 'http://github.com/dperetin/'
