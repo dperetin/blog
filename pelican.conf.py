@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 AUTHOR = u'Dejan Peretin'
-SITENAME = u"dperetin.github.com"
-SITEURL = 'http://dperetin.github.com'
+SITENAME = u"dejanperetin.com"
+SITEURL = 'http://dejanperetin.com'
 TIMEZONE = "Europe/Paris"
 
 #GITHUB_URL = 'http://github.com/dperetin/'
@@ -13,8 +13,8 @@ REVERSE_CATEGORY_ORDER = True
 
 DEFAULT_PAGINATION = 4
 
-FEED_RSS = 'feeds/all.rss.xml'
-CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
+#FEED_RSS = 'feeds/all.rss.xml'
+#CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 
 LINKS = (('Linux za sve', 'http://www.linuxzasve.com'),
          ('Pelican', "http://pelican.notmyidea.org/en/latest/"),
@@ -22,9 +22,6 @@ LINKS = (('Linux za sve', 'http://www.linuxzasve.com'),
 
 SOCIAL = (('twitter', 'http://twitter.com/dperetin'),
           ('github', 'http://github.com/dperetin'),)
-
-# global metadata to all the contents
-DEFAULT_METADATA = (('yeah', 'it is'),)
 
 # static paths will be copied under the same name
 STATIC_PATHS = ["slike", ]
