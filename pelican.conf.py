@@ -20,8 +20,9 @@ LINKS = (('Linux za sve', 'http://www.linuxzasve.com'),
          ('Pelican', "http://pelican.notmyidea.org/en/latest/"),
         )
 
-SOCIAL = (('twitter', 'http://twitter.com/dperetin'),
-          ('github', 'http://github.com/dperetin'),)
+SOCIAL = (('Twitter', 'http://twitter.com/dperetin'),
+          ('GitHub', 'http://github.com/dperetin'),
+          ('Stack Overlow', 'http://stackoverflow.com/users/1803990/dperetin'))
 
 # static paths will be copied under the same name
 STATIC_PATHS = ["slike", ]
