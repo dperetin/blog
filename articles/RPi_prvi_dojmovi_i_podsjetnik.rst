@@ -11,9 +11,9 @@ Raspberry Pi (*u daljnjem tekstu RPi*) je stigao. Malo računalo u maloj kutiji.
 
 Planirano je da RPi dolazi u dvije varijanete, Model A i Model B. Model A je jeftinija varijanta, zvanična cijena mu je 25 USD  no zasad se proizvodi samo model B i to po cijeni od 35 USD. Koliki su stvarni troškovi dok dođe na kućna vrata, saznajte u nastavku.
 
-.. image:: http://dejanperetin.com/slike/RPi_box.jpg
+.. image:: http://dejanperetin.com/static/slike/RPi_box.jpg
 
-.. image:: http://dejanperetin.com/slike/RPi_closeup.jpg
+.. image:: http://dejanperetin.com/static/slike/RPi_closeup.jpg
 
 `Raspberry Pi <http://www.raspberrypi.org/>`_ model B pogoni Broadcom BCM2835 procesor koji kuca na 700 MHz. Model B također ima modul
 od 256 Mb radne memorije koja se dijeli između centralnog procesora i grafičkog procesora. 
@@ -23,7 +23,7 @@ Raspberry Pi se na mrežu može spojiti putem RJ45 ethernet porta koji dolazi is
 
 Na slici dolje vidimo RPi model B, spojen analogno na TV, spojeni miš, tipkovnica i eksterni disk:
 
-.. image:: http://dejanperetin.com/slike/RPi.jpg
+.. image:: http://dejanperetin.com/static/slike/RPi.jpg
 
 Ono što nećete dobiti uz RPi, a nužno je za njegov rad, je SD memorijska kartica.
 
@@ -226,12 +226,12 @@ XBMC povremeno u terminal zapiše neku poruku (najčešće opis neke greške zap
 Ako se u tom trenutku reproducira neki film, koji je takvog formata da slika nije prikazana 
 preko cijelog ekrana, onda se ta poruka vidi u crnom predjelu ispod i iznad slike.
 
-.. image:: http://dejanperetin.com/slike/RPi_stderr.jpg
+.. image:: http://dejanperetin.com/static/slike/RPi_stderr.jpg
 
 Korisna napomena; ako se RPi ne spaja na TV (ili monitor) preko HDMI-a, nego analogno,
 onda se obavezno u postavkama XBMC-a audio output mora staviti na analog, u suprotnom se pri pokretanju filma dobije ovo: 
 
-.. image:: http://dejanperetin.com/slike/RPi_audio_analog.jpg
+.. image:: http://dejanperetin.com/static/slike/RPi_audio_analog.jpg
 
 Zgodna je činjenica da raspbmc po defalutu pokreće SSH server pa, ako se nekako može dokučiti IP
 adresa stroja, jedino što je potrebno da bi se na RPi-u nešto radilo je RJ45 kabel, dok su kod Debiana potrebni ekran i tipkovnica barem kod prvog boota.
