@@ -27,7 +27,7 @@ SOCIAL = (('Twitter', 'http://twitter.com/dperetin'),
 # static paths will be copied under the same name
 STATIC_PATHS = ["slike", ]
 
-THEME = "tuxlite_tbs"
+THEME = "/home/dejan/github_projekti/pelican-themes-dperetin/tuxlite_tbs"
 
 DISPLAY_PAGES_ON_MENU = True
 
@@ -38,3 +38,5 @@ DEFAULT_LANG = 'en'
 LOCALE = {'hr_HR'}
 
 DEFAULT_DATE_FORMAT = '%Y-%m-%d'
+
+RELATIVE_URLS = False
