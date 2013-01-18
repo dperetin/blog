@@ -18,7 +18,7 @@ Prvo na mobitelu napraviti ::
 
 Ako se sad pokusa pokrenuti app dobije se:
 
-.. image:: slike/android_prije_rulova.png
+.. image:: http://dejanperetin.com/slike/android_prije_rulova.png
 
 Treba generirati fajl ::
 
@@ -30,7 +30,7 @@ Sadrzaja: ::
 
 Sada ga vidi!!
 
-.. image:: slike/android_nakon_rulova.png
+.. image:: http://dejanperetin.com/slike/android_nakon_rulova.png
 
 04e8 je samsung ...
 
