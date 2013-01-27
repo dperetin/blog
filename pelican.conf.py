@@ -2,6 +2,7 @@
 AUTHOR = u'Dejan Peretin'
 SITENAME = u"dejanperetin.com"
 SITEURL = 'http://dejanperetin.com'
+FEED_DOMAIN = SITEURL
 TIMEZONE = "Europe/Paris"
 
 #GITHUB_URL = 'http://github.com/dperetin/'
@@ -25,7 +26,7 @@ SOCIAL = (('Twitter', 'http://twitter.com/dperetin'),
           ('Stack Overlow', 'http://stackoverflow.com/users/1803990/dperetin'))
 
 # static paths will be copied under the same name
-STATIC_PATHS = ["slike", ]
+STATIC_PATHS = ["slike"]
 
 THEME = "/home/dejan/github_projekti/pelican-themes-dperetin/tuxlite_tbs"
 
@@ -40,3 +41,5 @@ LOCALE = {'hr_HR'}
 DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
 RELATIVE_URLS = False
+
+FEED_ATOM = "feed/all.atom.xml"
