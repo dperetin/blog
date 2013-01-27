@@ -27,7 +27,7 @@ Da bi se omogućila stavka ``Developer options`` potrebno je sedam puta kliknuti
 popup koji odbrojava klikove, odnosono ispiše poruku ako
 se klikne na ``Build number`` kad je već stavka uključena.
 
-.. image:: static/slike/android_42_enable_developer_options.png
+.. image:: http://dejanperetin.com/static/slike/android_42_enable_developer_options.png
 
 Da bi se sada uređaj mogao koristiti za debugiranje
 potrebno je napraviti sljedeće::
